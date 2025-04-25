@@ -1,0 +1,49 @@
+/* Styles for selected menu item */
+.ant-menu-light .ant-menu-item-selected {
+  background-color: rgb(191, 155, 48) !important; /* Background color for selected */
+  color: #ffffff !important; /* Text color for selected */
+}
+
+/* Ensure icons are white for selected items */
+.ant-menu-light .ant-menu-item-selected .anticon {
+  color: #ffffff !important; /* Icon color for selected */
+}
+
+/* Styles for hovered menu item */
+.ant-menu-light
+  .ant-menu-item:not(.ant-menu-item-selected):not(.ant-menu-submenu-selected):hover {
+  background-color: rgb(191, 155, 48) !important; /* Background color for hover */
+  color: #ffffff !important; /* Text color for hover */
+}
+
+/* Ensure icons are white on hover */
+.ant-menu-light
+  .ant-menu-item:not(.ant-menu-item-selected):not(.ant-menu-submenu-selected):hover
+  .anticon {
+  color: #ffffff !important; /* Icon color for hover */
+}
+
+/* Default state (unselected and unhovered) */
+.ant-menu-light .ant-menu-item {
+  color: #000000 !important; /* Default text color */
+}
+
+/* Default icon color */
+.ant-menu-light .ant-menu-item .anticon {
+  color: #000000 !important; /* Default icon color */
+}
+
+  /* .ant-menu-light .ant-menu-item-selected {
+    background-color: #47a047 !important;
+    color: #fff !important;
+} */
+    
+
+   /* .ant-menu-item-selected svg,
+   .ant-menu-item-selected span{
+    color: #fff;
+   }
+
+   :where(.css-dev-only-do-not-override-11xg00t).ant-menu .ant-menu-item .ant-menu-item-icon, :where(.css-dev-only-do-not-override-11xg00t).ant-menu .ant-menu-submenu-title .ant-menu-item-icon{
+    color: #585858;
+   } */

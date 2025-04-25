@@ -1,0 +1,112 @@
+ .multiStepSec ol.progtrckr {
+   margin: 0;
+   padding-bottom: 2.2rem;
+   list-style-type: none;
+ }
+
+ .multiStepSec ol.progtrckr li {
+   display: inline-block;
+   text-align: center;
+   line-height: 4.5rem;
+   padding: 0 0.7rem;
+   cursor: pointer;
+ }
+
+ .multiStepSec ol.progtrckr li span {
+   padding: 0 1.5rem;
+ }
+
+
+ .multiStepSec ol.progtrckr li.progtrckr-todo {
+   color: silver;
+   border-bottom: 4px solid silver;
+ }
+
+ ol.progtrckr li.progtrckr-doing {
+   color: black;
+   border-bottom: 4px solid #33c3f0;
+ }
+
+ .multiStepSec ol.progtrckr li.progtrckr-done {
+   color: black;
+   border-bottom: 4px solid #33c3f0;
+ }
+
+ .multiStepSec ol.progtrckr li:after {
+   content: "\00a0\00a0";
+ }
+
+ .multiStepSec ol.progtrckr li:before {
+   position: relative;
+   bottom: -3.7rem;
+   float: left;
+   left: 50%;
+ }
+
+ .multiStepSec .multiStepSec ol.progtrckr li.progtrckr-todo:before {
+   content: "\039F";
+   color: silver;
+   background-color: white;
+   width: 1.2em;
+   line-height: 1.4em;
+ }
+
+ .multiStepSec .multiStepSec ol.progtrckr li.progtrckr-todo:hover:before {
+   color: #0fa0ce;
+ }
+
+ .multiStepSec .multiStepSec ol.progtrckr li.progtrckr-doing:before {
+   content: "\2022";
+   color: white;
+   background-color: #33c3f0;
+   width: 1.2em;
+   line-height: 1.2em;
+   border-radius: 1.2em;
+ }
+
+ .multiStepSec ol.progtrckr li.progtrckr-doing:hover:before {
+   color: #0fa0ce;
+ }
+
+ .multiStepSec ol.progtrckr li.progtrckr-done:before {
+   content: "\2713";
+   color: white;
+   background-color: #33c3f0;
+   width: 1.2em;
+   line-height: 1.2em;
+   border-radius: 1.2em;
+ }
+
+ .multiStepSec ol.progtrckr li.progtrckr-done:hover:before {
+   color: #0fa0ce;
+ }
+
+ .go433304200:before {
+   content: "✓";
+   color: white;
+   background-color: #bf9b2f;
+ }
+
+ .go2150698616 {
+   display: inline-block;
+   text-align: center;
+   line-height: 4.8rem;
+   cursor: pointer;
+   min-width: 13rem;
+ }
+
+ .go169520481 {
+   padding-left: 5px;
+ }
+ .go3842760039:before {
+  content: "•";
+  color: white;
+  background-color: #bf9b2f;
+}
+.go433304200{
+  border-bottom: 4px solid #bf9b2f;
+}
+.go3842760039{
+  border-bottom: 4px solid #bf9b2f;
+
+}

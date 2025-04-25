@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,700,900&display=swap");
+
+.container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.packList {
+  /* / width: 90%; /
+  / margin: 0 auto; /
+  / display: flex; /
+  / flex-wrap: wrap; /
+  / min-height: 20px; / */
+  font-family: "Poppins", sans-serif;
+}
+
+.packList .packContainer {
+  color: #B7B7B7;
+  display: block;
+  /* / width: 33.33%; / */
+  text-align: center;
+  position: relative;
+  height: 100%;
+}
+
+.packList .packContainer .packRadio {
+  position: absolute;
+  opacity: 0;
+  display: none;
+}
+
+.packList .packContainer .packRadio:checked+.pack {
+  -webkit-box-shadow: 0px 0px 0px 3px #020950;
+  -moz-box-shadow: 0px 0px 0px 3px #020950;
+  box-shadow: 0px 0px 0px 3px #020950;
+}
+
+.price p {
+  font-size: 25px;
+  color: #bf9b2f;
+  margin: 10px 0px;
+  font-weight: 600;
+}
+
+.packList .packContainer .packRadio:checked+.pack::before {
+  content: url(data:image/svg+xml,%3Csvg%20width%3D%2213%22%20height%3D%2213%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%226.5%22%20cy%3D%226.5%22%20r%3D%226.5%22%20fill%3D%22%23bf9b2f%22%20%2F%3E%3C%2Fsvg%3E);
+  position: absolute;
+  display: block;
+  right: 19px;
+  top: 7px;
+  z-index: 10;
+  width: 13px;
+  height: 13px;
+}
+
+.packList .packContainer .packRadio:checked+.pack::after {
+  background: #ffffff;
+}
+
+.packList .packContainer .packRadio:checked+.pack .price b {
+  color: #020950;
+}
+
+.packContainer b {
+  font-weight: 600;
+  font-size: 25px !important;
+  margin-top: 20px;
+}
+
+.packList .packContainer .pack {
+  background: #F9F9F9;
+  display: block;
+  margin: 0rem;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+  height: 100%;
+
+}
+
+.packList .packContainer .pack::before {
+  transition: all 0.4s ease-in;
+}
+
+.packList .packContainer .pack::after {
+  content: " ";
+  background: white;
+  position: absolute;
+  border-radius: 50%;
+  width: 19px;
+  height: 19px;
+  top: 8px;
+  right: 16px;
+  border: 1px solid #bf9b2f;
+  transition: all 0.4s ease-in;
+}
+
+.packList .packContainer .pack .header h2 {
+  font-size: 25px;
+  color: #212529;
+}
+
+/* .packList .packContainer .pack .price {
+ margin-top: 4rem;
+} */
+.packList .packContainer .pack .price b {
+  font-size: 20px;
+  display: block;
+  color: #545454;
+}
+
+/* .packList .packContainer .pack .features p {
+ padding: 3rem 3rem;
+} */
+.packList .packContainer .pack .features ul {
+  padding: 0 3rem;
+  text-align: left;
+  list-style: none;
+}
+
+.packList .packContainer .pack .features ul li {
+  position: relative;
+  margin-left: 40px;
+}
+
+.packList .packContainer .pack .features ul li.active {
+  color: #545454;
+}
+
+.packList .packContainer .pack .features ul li.active::before {
+  display: block;
+  position: absolute;
+  left: -20px;
+  content: url("data:image/svg+xml; utf8, <svg version='1.1'  fill='rgb(0,144,255)' width='12px' id='Capa_1' xmlns='http://www.w3.org/2000/svg'  xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 236.988 236.988' style='enable-background:new 0 0 236.988 236.988;' xml:space='preserve'><polygon points='198.098,24.326 87.543,134.881 38.891,86.229 0,125.121 87.543,212.662 236.988,63.217 '/><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>");
+}
+
+.features p {
+  padding: 10px;
+  font-size: 14px;
+}
+
+ 
+@media screen and (max-width: 1649px) {
+  .packList .packContainer .pack {
+    margin: 0.45rem;
+    padding: 0.45rem;
+  }
+}
+
+@media screen and (max-width: 1499px) {
+  .packList {
+    width: 100%;
+  }
+
+  .packList .packContainer .pack {
+    margin: 0.25rem;
+    padding: 0.25rem;
+  }
+}
+
+@media screen and (max-width: 1210px) {
+  .container {
+    width: 95%;
+  }
+
+  /* .packList .packContainer {
+   width: 50%;
+ } */
+  .packList .packContainer:nth-child(2) {
+    order: -1;
+    width: 100%;
+  }
+
+  .packList .packContainer .pack .price {
+    margin-top: 2rem;
+  }
+
+  .packList .packContainer .pack .features p {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .packList .packContainer {
+    width: 100%;
+  }
+}
+
+.packList .packContainer .pack {
+  padding: 15px !important;
+}
+
+.features li {
+  font-size: 15px;
+  margin-bottom: 10px;
+  margin-left: 20px !important;
+  position: relative;
+}
+
+.features li::before {
+  position: absolute;
+  content: "\2714";
+  color: #bf9b2f;
+  left: -20px;
+  font-size: 15px;
+  font-weight: 900;
+}
+.price h5,.price h6 {
+ color: #484545e6;
+ font-size: 15px;
+ font-weight: 500;
+}
+
+strong.durationWeek {
+ font-size: 17px;
+ font-weight: 500;
+ color: #484545e6;
+ margin-bottom: 0px;
+ display: block;
+ font-weight: 600;
+}
+.navBtnMain button#profile-tab.active {
+ background: #ba9939;
+ border: unset;
+ color: #fff;
+ border-radius: 5px;
+ padding: 10px 30px;
+ font-weight: 500;
+}
+
+.navBtnMain button#home-tab.active {
+ background: #ba9939;
+ border: unset;
+ color: #fff;
+ border-radius: 5px;
+ padding: 10px 30px;
+ font-weight: 500;
+}
+ul#myTab {
+ border: unset;
+ margin: auto;
+ width: 400px;
+}
+
+.navBtnMain button {
+ color: var(--blue);
+ border:unset;
+ font-weight: 500;
+
+}
+
+button#home-tab:focus,button#profile-tab:focus{
+ border: unset !important;
+}
+button#home-tab:hover{
+ border: unset !important;
+}
+button#profile-tab:hover{
+ border: unset !important;
+}
