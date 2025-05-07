@@ -136,7 +136,7 @@ export default function JobDetailpage() {
     doc.addImage(logoPath, "PNG", logoX, logoY, logoWidth, logoHeight);
 
     // Add "Contact Us"
-    const contactX = 10; // Adjust positioning inside golden part
+    const contactX = 7; // Adjust positioning inside golden part
     let contactY = pageHeight - 50; // Position near the bottom
 
     doc.setFontSize(15);
@@ -144,19 +144,48 @@ export default function JobDetailpage() {
     doc.setTextColor(2, 9, 80);
     doc.text("Contact Us", contactX, contactY);
 
-    doc.setFontSize(14);
-    doc.setFont("helvetica", "normal");
-    contactY += 10;
-    doc.text(`Phone:${information.phone_no} `, contactX, contactY);
-    // contactY += 10;
-    // doc.text("Address: Noida", contactX, contactY);
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+    contactY += 7;
+    doc.text("Phone:- +232 88 247 000", contactX, contactY);
 
-    const stripHtml = (html) => html.replace(/<\/?[^>]+(>|$)/g, ""); // Removes HTML tags
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+    contactY += 7;
+    doc.text("Phone:- +232 72 065 065", contactX, contactY);
+
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+    contactY += 7;
+    doc.text("Email:- info@smartstart.sl", contactX, contactY);
+
+    doc.setFontSize(10);
+    doc.setFont("helvetica", "bold");
+    contactY += 7;
+    doc.text("Website:- www.smartstartsl.com", contactX, contactY);
+
+    const stripHtml = (html) => html.replace(/<\/?[^>]+(>|$)/g, "");
+    const formatDescription = (html) => {
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = html;
+      const lines = [];
+      tempDiv.childNodes.forEach((node) => {
+        if (node.nodeName === "UL" || node.nodeName === "OL") {
+          node.childNodes.forEach((li) => {
+            lines.push(`• ${li.textContent.trim()}`);
+          });
+        } else if (node.nodeName === "P") {
+          lines.push(node.textContent.trim());
+        } else if (node.nodeType === Node.TEXT_NODE) {
+          lines.push(node.textContent.trim());
+        }
+      });
+      return lines.join("\n");
+    };
 
     // Content Variables
     const Title = `${information?.job_title}`;
-    const Description = stripHtml(information?.job_Description || "");
-    // const Responsibilities = stripHtml(information?.job_Responsibility || "");
+    const Description = formatDescription(information?.job_Description || "");
 
     let yPosition = 20;
 
@@ -177,20 +206,34 @@ export default function JobDetailpage() {
     ) => {
       doc.setFontSize(fontSize);
       doc.setTextColor(...textColor);
-      if (isBold) {
-        doc.setFont("helvetica", "bold");
-      } else {
-        doc.setFont("helvetica", "normal");
-      }
-      const lines = doc.splitTextToSize(text, contentWidth);
+      doc.setFont("helvetica", isBold ? "bold" : "normal");
+
+      const lines = text.split("\n");
+
       let currentY = y;
-      for (const line of lines) {
-        if (currentY + 7 > pageHeight - bottomPadding) {
-          currentY = addStyledPage();
+
+      for (const paragraph of lines) {
+        const isBullet = paragraph.trim().startsWith("•");
+        const indent = isBullet ? 4 : 0;
+
+        // Split paragraph into lines (wrap long lines)
+        const splitLines = doc.splitTextToSize(
+          paragraph,
+          contentWidth - (isBullet ? indent : 0)
+        );
+
+        for (let i = 0; i < splitLines.length; i++) {
+          const lineX = isBullet && i > 0 ? x + indent : x;
+
+          if (currentY + 7 > pageHeight - bottomPadding) {
+            currentY = addStyledPage();
+          }
+
+          doc.text(splitLines[i], lineX, currentY);
+          currentY += 7;
         }
-        doc.text(line, x, currentY);
-        currentY += 7;
       }
+
       return currentY;
     };
 
@@ -209,7 +252,7 @@ export default function JobDetailpage() {
       contentStartX,
       yPosition,
       13,
-      [102, 116, 136] // Lighter color
+      [53, 57, 53] // Black color
     );
     yPosition += 10;
     // Save the PDF

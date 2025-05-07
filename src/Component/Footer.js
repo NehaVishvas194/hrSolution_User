@@ -48,12 +48,17 @@ export default function Footer() {
   };
 
   const handlenavigateacclients123 = () => {
-    if (localStorage.getItem("empId")) {
-      navigate("/GetAll_candidates");
-    } else {
-      navigate("/ContentAs");
-    }
+    navigate("/ContentAs");
   };
+  
+  // const handlenavigateacclients123 = () => {
+  //   if (localStorage.getItem("empId")) {
+  //     navigate("/GetAll_candidates");
+  //   } else {
+  //     navigate("/ContentAs");
+  //   }
+  //   navigate("/ContentAs");
+  // };
 
   const getcontent = () => {
     axios

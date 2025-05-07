@@ -577,9 +577,12 @@ const BasicLabourTool = () => {
                             <dl>
                               <dt>Allowance</dt>
                               <dd>
-                                At least one month of basic salary or a
-                                percentage of the annual basic salary as
-                                prescribed by collective bargaining agreements.
+                                The benefit shall be equivalent to at least one
+                                month's basic salary or a specified percentage
+                                of the annual basic salary as outlined in the
+                                applicable collective bargaining agreement. In
+                                certain cases, it may be calculated based on the
+                                employee's annual gross salary.
                               </dd>
                               {/* <dd>The allowance may also be determined by other favourable terms provided by the employer.</dd> */}
                             </dl>

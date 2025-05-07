@@ -382,7 +382,7 @@ const MultistepForm = () => {
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
                                             value={personal.city}
-                                            label="District"
+                                            // label="District"
                                             name="city"
                                             onChange={submitInputdata}
                                           >
@@ -466,17 +466,17 @@ const MultistepForm = () => {
                                           Doctorate
                                         </option>
                                         <option value="Bachelors">
-                                          Bachelors
+                                          Bachelor
                                         </option>
                                         <option value="Diploma">Diploma</option>
                                         <option value="Certificates">
-                                          Certificates
+                                          Certificate
                                         </option>
                                         <option value="secondry">
-                                          Senior Secondary School Certificates
+                                          Senior Secondary School Certificate
                                         </option>
                                         <option value="hsecondary">
-                                          Junior Secondary School Certificates
+                                          Junior Secondary School Certificate
                                         </option>
                                       </select>
                                     </div>

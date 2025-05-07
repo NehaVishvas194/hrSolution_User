@@ -216,7 +216,7 @@ export default function Client_Pagedata() {
                                 <p>
                                     {" "}
                                     Utilise our extensive job description database to create clear and effective job postings.
-                                    Experience seamless recruitment and attract top talent with Smart Start SL Ltd. – your partner in HR excellence.
+                                    Experience seamless recruitment and attract top talent with Smart Start SL Ltd.
                                     {" "}
                                 </p>
                                 {/* <p className="b-btn b-btn-green" onClick={handleUploadResume} >

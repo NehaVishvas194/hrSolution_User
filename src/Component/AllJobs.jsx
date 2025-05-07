@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import one from "../Image/01.webp";
 
 const top100Films = [
-  "Western Area Urban",
+  "Western Area Urban ",
   "Western Area Rural",
   "Bombali",
   "Bonthe",
@@ -29,10 +29,6 @@ const top100Films = [
   "Bo",
   "Karene",
   "Falaba",
-  "Tonkolili , Sierra leone",
-  "pvtrio tech",
-  "CDRT.ltd",
-  "Bombali , Sierra leone",
 ];
 
 const AllJobs = () => {

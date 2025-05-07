@@ -127,7 +127,7 @@ export default function RecentJobs() {
                           className="fi fi-rr-marker"
                           style={{ cursor: "default" }}
                         />
-                        {/* {info?.location?.join(",")} */}
+                        {info?.location?.join(",")}
                       </span>
                     </div>
                   </div>

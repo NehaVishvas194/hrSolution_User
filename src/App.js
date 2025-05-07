@@ -82,12 +82,14 @@ import Success from "./Component/MonimePayment/Success";
 import FemaleTelentPool from "./DashboardHR/Pages/FemaleTelentPool";
 import CancelPackege from "./Component/MonimePayment/CancelPackege";
 import CandidatesSay from "./Component/CandidatesSay";
+import Register from "./HRComponent/Signup/Register";
+import OurClients from "./Component/OurClients";
 // import ChooseTemplate from './Component/ChooseTemplate';
 // import Psychometric from './DashboardHR/Psychometric/Psychometric';
 // import TestCategery from './DashboardHR/Psychometric/TestCategery';
 
 function App() {
-  console.log("date:-25-04-2025 time:-03:37");
+  console.log("date:-06-05-2025 time:-02:10");
   const [text, setText] = useState("");
   return (
     <div className="App">
@@ -96,7 +98,8 @@ function App() {
       <MyContext.Provider value={{ text, setText }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/SignUp" element={<SignUp />} />
+          {/* <Route path="/SignUp" element={<SignUp />} /> */}
+          <Route path="/SignUp" element={<Register />} />
           <Route path="/Package" element={<Selectpackeg />} />
           <Route path="/Signin" element={<Signin />} />
           <Route path="/Services" element={<Services />} />
@@ -135,7 +138,8 @@ function App() {
           <Route path="CareerAdvice" element={<CareerAdvice />} />
           <Route path="UploadResume" element={<UploadResume />} />
           <Route path="ClientPortfolio" element={<ClientPortfolio />} />
-          <Route path="GetAll_candidates" element={<GetAll_candidates />} />
+          <Route path="ourClients" element={<OurClients />} />
+          {/* <Route path="GetAll_candidates" element={<GetAll_candidates />} /> */}
           <Route path="BlogDetails" element={<BlogDetails />} />
           <Route path="ReadOnline" element={<ReadOnline />} />
           <Route path="ReadOnlineTwo" element={<ReadOnlineTwo />} />

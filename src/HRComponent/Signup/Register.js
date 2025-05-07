@@ -51,7 +51,7 @@ const company = [
   "Falaba",
 ];
 
-export default function SignUp(props) {
+export default function Register(props) {
   //  const location = useLocation();
   //  console.log(location.state.id)
   const [hide, setHide] = useState(false);
@@ -138,40 +138,76 @@ export default function SignUp(props) {
     setSelectedImage(file);
   };
 
-  const submitAllData = (e) => {
+  const submitAllData = async (e) => {
     e.preventDefault();
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(inputData.email)) {
-      alert("Please enter a valid email address.");
-    } else {
-      navigate("/Package", {
-        // signin
-        state: {
-          inputData: inputData,
-          industry: facilitiesName,
-          selectedImage: selectedImage,
-          companyName: companyName,
+      Swal.fire({
+        icon: "error",
+        title: "Invalid Email",
+        text: "Please enter a valid email address.",
+      });
+      return;
+    }
+
+    try {
+      const formData = new FormData();
+      formData.append("name", inputData.name);
+      formData.append("email", inputData.email);
+      formData.append("password", inputData.password);
+      formData.append("phone_no", inputData.phone_no);
+      formData.append("company_name", inputData.company_name);
+      formData.append("Number_of_emp", inputData.Number_of_emp);
+      formData.append("company_industry", facilitiesName); // it's selected from dropdown
+      formData.append("company_HQ", companyName); // it's selected from dropdown
+      formData.append("profileImage", selectedImage); // your image file
+
+      setDisable("submitted"); // disable button while submitting
+
+      const response = await axios.post(`${baseUrl}clientSignup`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
       });
+
+      if (response.data.success) {
+        Swal.fire({
+          icon: "success",
+          title: "Registration Successful",
+          text: "You have been registered successfully!",
+        });
+
+        // Clear the form fields
+        setInputData({
+          name: "",
+          email: "",
+          password: "",
+          phone_no: "",
+          company_name: "",
+          Number_of_emp: "",
+        });
+        setFacilitiesName("");
+        setCompanyName("");
+        setSelectedImage(null);
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Registration Failed",
+          text: response.data.message || "Something went wrong!",
+        });
+      }
+    } catch (error) {
+      console.error("Error during signup:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: error.response?.data?.message || "Something went wrong!",
+      });
+    } finally {
+      setDisable("typing"); // Enable button again after attempt
     }
   };
-
-  //   if (selectedImage !== null) {
-  //     console.log("Please select an image");
-  //   } else if (!emailRegex.test(inputData.email)) {
-  //     alert("Please enter a valid email address.");
-  //   } else {
-  //     navigate("/Package", {
-  //       // Package
-  //       state: {
-  //         inputData: inputData,
-  //         industry: facilitiesName,
-  //         selectedImage: selectedImage,
-  //         companyName: companyName,
-  //       },
-  //     });
-  //   }
-  // };
 
   return (
     <section className="section-paddings">
@@ -193,34 +229,6 @@ export default function SignUp(props) {
                   <div className="row">
                     <div className="col-lg-12 col-12">
                       <div className="form-group">
-                        {/* <div className="profile-pic">
-                          
-                          {selectedImage ? (
-                            <img
-                              alt="not found"
-                              className="rounded-circle"
-                              height={200}
-                              src={URL.createObjectURL(selectedImage)}
-                            />
-                          ) : (
-                            <label htmlFor="profile-image-upload">
-                              <img
-                                alt="not found"
-                                className="rounded-circle"
-                                height={200}
-                                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                              />
-                            </label>
-                          )}
-                          <input
-                            id="profile-image-upload"
-                            type="file"
-                            name="image"
-                            onChange={imageFunction}
-                            className="file-input"
-                          />
-                          <div style={{ color: "#999" }}></div>
-                        </div> */}
                         <div className="container">
                           <div className="avatar-upload">
                             <div className="avatar-edit">
@@ -247,16 +255,13 @@ export default function SignUp(props) {
                                   <img
                                     alt="not found"
                                     className="rounded-circle"
-                                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                                    src="https://cdn.pixabay.com/photo/2017/06/12/00/29/building-2393978_640.png"
                                   />
                                 </label>
                               )}
-                              {/* <div
-                                id="imagePreview"
-                                style={{ backgroundImage: 'url("http://i.pravatar.cc/500?img=7")' }}
-                              ></div> */}
                             </div>
                           </div>
+                          <p className="Logo_para">Upload Company Logo</p>
                         </div>
                       </div>
                     </div>
@@ -481,29 +486,6 @@ export default function SignUp(props) {
                               ))}
                             </Select>
                           </FormControl>
-                          {/* <FormControl sx={{ width: 650 }}>
-                                    <TextField
-                                      select
-                                      label={!facilitiesName.length ? 'Company Industry' : ''}
-                                      value={facilitiesName}
-                                      onChange={handleChange2}
-                                      SelectProps={{
-
-                                        renderValue: (selected) => selected.join(', '),
-                                      }}
-                                      variant="outlined"
-
-                                      style={{ backgroundColor: "white", height: "45px" }}
-                                      InputLabelProps={{ shrink: !!facilitiesName.length }}
-                                    >
-                                      {names.map((name) => (
-                                        <MenuItem key={name} value={name}>
-                                          <Checkbox checked={facilitiesName.indexOf(name) > -1} />
-                                          <ListItemText primary={name} />
-                                        </MenuItem>
-                                      ))}
-                                    </TextField>
-                                  </FormControl> */}
                         </div>
                       </div>
                     </div>

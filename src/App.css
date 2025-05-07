@@ -3427,7 +3427,7 @@ nav.navbar.navbar-expand-lg.px-4.navBar {
   width: 230px;
   height: 44px;
   border: 0;
-  padding: 0 25px;
+  /* padding: 0 25px; */
   font-weight: 500;
   font-size: 15px;
 }
@@ -5130,7 +5130,7 @@ main {
 .shadowDetailFind p {
   margin-bottom: 0px;
   color: #000;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .shadowDetailFind a {
@@ -9462,3 +9462,65 @@ li.ant-menu-item svg {
 .css-9htuae .MuiInput-root.MuiInputBase-sizeSmall .MuiInput-input {
   padding: 8px 5px 5px 5px !important;
 }
+
+.Logo_para {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: -25px;
+  color: white;
+}
+
+/* Our Clients Css start here  */
+.partner-section {
+  background-color: #ffffff;
+  padding: 0 0 70px 0;
+}
+
+.partner-section .items {
+  border: 1px solid #ddd;
+  margin: 0 0 25px 0;
+  border-radius: 10px;
+  /* padding: 40px 20px; */
+  text-align: center;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partner-section .items img {
+  height: 200px;
+  width: 100%;
+  object-fit: contain;
+  padding: 20px;
+}
+
+/* .partner-section .items img:nth-child(1) {
+  position: relative;
+  display: inline-block !important;
+  width: auto !important;
+  transition: transform 0.4s ease;
+} */
+
+/* .partner-section .items img:nth-child(2) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 200%);
+  transition: transform 0.4s ease;
+  display: inline-block !important;
+  width: auto !important;
+} */
+
+/* .partner-section .items:hover img:nth-child(1) {
+  transform: translateY(-200%);
+} */
+
+/* .partner-section .items:hover img:nth-child(2) {
+  transform: translate(-50%, -50%);
+} */
+
+/* .partner-section .items:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+} */

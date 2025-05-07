@@ -63,7 +63,12 @@ const FindJobPage = () => {
     "UK Shift",
     "Others",
   ];
-  const Experience = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const Experience = [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+    22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
+    41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
+  ];
+
   const fetchJobTitles = () => {
     axios
       .get(`${baseUrl}alljobTitle`)
@@ -193,7 +198,7 @@ const FindJobPage = () => {
                                             />
                                         </div>
                                     </div> */}
-                  <div className="childButtonTop">
+                  <div className="childButtonTop mb-4">
                     <div class="dropdown">
                       <Autocomplete
                         disablePortal
@@ -208,7 +213,7 @@ const FindJobPage = () => {
                       />
                     </div>
                   </div>
-                  <div className="childButtonTop">
+                  <div className="childButtonTop mb-4">
                     <div class="dropdown">
                       <Autocomplete
                         disablePortal
@@ -406,11 +411,11 @@ const FindJobPage = () => {
                                 </div>
                                 <div className="jobDetailSec">
                                   <h5>Job details</h5>
-                                  <div className="Jobdetails">
-                                    {/* <div className='walletFinfDetail'>
+                                  {/* <div className="Jobdetails"> */}
+                                  {/* <div className='walletFinfDetail'>
                                                                     <i class="fi fi-rr-money-bills-simple"></i>
                                                                 </div> */}
-                                    {/* <div className='walletFindText'>
+                                  {/* <div className='walletFindText'>
                                                                     <h6>Pay</h6>
                                                                     <span>
                                                                         {info.salary_pay.map((pay, index) => (
@@ -420,7 +425,7 @@ const FindJobPage = () => {
                                                                         ))}
                                                                     </span>
                                                                 </div> */}
-                                  </div>
+                                  {/* </div> */}
                                   <div className="Jobdetails">
                                     <div className="walletFinfDetail">
                                       <i class="fi fi-rr-box-open"></i>
@@ -625,12 +630,25 @@ const FindJobPage = () => {
                                     .map((item, e) => (
                                       <li key={e}>{item.trim()}</li>
                                     ))}
+
+                                  {/* <li
+                                    dangerouslySetInnerHTML={renderHTML(
+                                      info?.job_Responsibility
+                                    )}
+                                  ></li> */}
+                                </ul>
+                                <ul className="listFindPage">
+                                  <h5
+                                    className="mt-4"
+                                    style={{ color: "#000" }}
+                                  >
+                                    Job Responsibility
+                                  </h5>
                                   <li
                                     dangerouslySetInnerHTML={renderHTML(
                                       info?.job_Responsibility
                                     )}
                                   ></li>
-                                  <h1>test</h1>
                                 </ul>
                               </div>
                             </div>
@@ -662,21 +680,22 @@ const FindJobPage = () => {
                                 <div className="parentAssign">
                                   <h4>{info.job_title}</h4>
                                 </div>
-                                <p
-                                  style={{
-                                    "font-size": "18px",
-                                    color: "#020950",
-                                    "font-weight": "600",
-                                    "text-transform": "capitalize",
-                                  }}
-                                >
-                                  {info.company_name},
+                                <p>
+                                  <strong>Company:- </strong>
+                                  {info.company_name}
+                                </p>
+                                <p>
+                                  <strong>Location:- </strong>
+                                  {/* {info.company_name} , */}
                                   {info?.location?.join(",")}
                                 </p>
                                 <p>
-                                  <span>
-                                    {info.employee_email}, {info.phone_no}
-                                  </span>{" "}
+                                  <strong>Email:- </strong>
+                                  {info.employee_email}
+                                </p>
+                                <p>
+                                  <strong>Phone:- </strong>
+                                  {info.phone_no}
                                 </p>
                                 <div className="findApplyBtn">
                                   <button
@@ -697,11 +716,11 @@ const FindJobPage = () => {
                               </div>
                               <div className="jobDetailSec">
                                 <h5>Job details</h5>
-                                <div className="Jobdetails">
-                                  {/* <div className='walletFinfDetail'>
+                                {/* <div className="Jobdetails"> */}
+                                {/* <div className='walletFinfDetail'>
                                                                     <i class="fi fi-rr-money-bills-simple"></i>
                                                                 </div> */}
-                                  {/* <div className='walletFindText'>
+                                {/* <div className='walletFindText'>
                                                                     <h6>Pay</h6>
                                                                     <span>
                                                                         {info.salary_pay.map((pay, index) => (
@@ -711,13 +730,13 @@ const FindJobPage = () => {
                                                                         ))}
                                                                     </span>
                                                                 </div> */}
-                                </div>
+                                {/* </div> */}
                                 <div className="Jobdetails">
                                   <div className="walletFinfDetail">
                                     <i class="fi fi-rr-box-open"></i>
                                   </div>
                                   <div className="walletFindText">
-                                    <h6>skills</h6>
+                                    <h6>Skills</h6>
 
                                     <span>
                                       <ul>
@@ -751,7 +770,7 @@ const FindJobPage = () => {
                                     />
                                   </div>
                                   <div className="walletFindText">
-                                    <h6>Number of emp needed</h6>
+                                    <h6>Number of Employee Needed</h6>
                                     <span>{info.Number_of_emp_needed} </span>
                                   </div>
                                 </div>
@@ -760,7 +779,7 @@ const FindJobPage = () => {
                                     <i class="fa-solid fa-graduation-cap"></i>
                                   </div>
                                   <div className="walletFindText">
-                                    <h6>qualification</h6>
+                                    <h6>Qualification</h6>
                                     <div className="salaryButton">
                                       {info.qualification}
                                     </div>

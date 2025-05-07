@@ -169,10 +169,11 @@ export default function Header() {
                     </p>
                   </div>
                 ) : (
-                  <Link to="/login" className="b-btn job_area_btn">
-                    Sign in
-                  </Link>
+                 <p></p>
                 )}
+                 {/* <Link to="/login" className="b-btn job_area_btn">
+                    Sign in
+                  </Link> */}
 
                 <div
                   className="dropdown-menu drop_style"

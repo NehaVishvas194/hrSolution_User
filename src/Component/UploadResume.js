@@ -419,9 +419,9 @@ const UploadResume = () => {
                         value={data.Highest_Education}
                       >
                         <option value="">Select Education</option>
-                        <option value="Masters">Masters</option>
+                        <option value="Masters">Master</option>
                         <option value="Diploma">Doctorate</option>
-                        <option value="Masters">Bachelors</option>
+                        <option value="Masters">Bachelor</option>
                         <option value="Masters">Diploma</option>
                         <option value="Certificate">Certificate</option>
                         <option value="Senior School Certificate">

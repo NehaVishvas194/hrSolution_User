@@ -31,10 +31,6 @@ const countries = [
   "Bo",
   "Karene",
   "Falaba",
-  "Tonkolili , Sierra leone",
-  "pvtrio tech",
-  "CDRT.ltd",
-  "Bombali , Sierra leone",
 ];
 
 export default function HomeBanner() {
@@ -166,27 +162,27 @@ export default function HomeBanner() {
                                 borderBottom: "none",
                               },
                           }}
-                          renderInput={(params) => (
-                            <TextField
-                              {...params}
-                              placeholder="Job title"
-                              size="small"
-                              variant="standard"
-                              sx={{
-                                "& .MuiInputBase-root": {
-                                  height: "100%",
-                                },
-                                "&:hover .MuiInputBase-root::before, &:hover .MuiInputBase-root::after":
-                                  {
-                                    borderBottom: "none",
-                                  },
-                                "& .MuiInputBase-root::before, & .MuiInputBase-root::after":
-                                  {
-                                    borderBottom: "none",
-                                  },
-                              }}
-                            />
-                          )}
+                          // renderInput={(params) => (
+                          //   <TextField
+                          //     {...params}
+                          //     placeholder="Job title"
+                          //     size="small"
+                          //     variant="standard"
+                          //     sx={{
+                          //       "& .MuiInputBase-root": {
+                          //         height: "100%",
+                          //       },
+                          //       "&:hover .MuiInputBase-root::before, &:hover .MuiInputBase-root::after":
+                          //         {
+                          //           borderBottom: "none",
+                          //         },
+                          //       "& .MuiInputBase-root::before, & .MuiInputBase-root::after":
+                          //         {
+                          //           borderBottom: "none",
+                          //         },
+                          //     }}
+                          //   />
+                          // )}
                         />
                       </div>
                       <div className="job-input">
@@ -247,15 +243,32 @@ export default function HomeBanner() {
                   </div>
                   <div className="job-hero-form newclassbanner">
                     <div className="newbanner-Alien">
-                      <div className="nice-select2" role="button" tabIndex={0}>
-                        <Autocomplete
-                          className="MuiAutocomplete-input"
-                          disablePortal
-                          id="combo-box-demo"
-                          options={jobTitles}
+                      <div
+                        className="nice-select2"
+                        role="button"
+                        tabIndex={0}
+                      >
+                        <TextField
+                          fullWidth
+                          placeholder="Job title"
                           value={selectedJobTitle}
-                          onChange={handleJobTitleChange}
-                          sx={{ width: 200, border: 0, marginTop: 0 }}
+                          onChange={(e) =>
+                            handleJobTitleChange(null, e.target.value)
+                          }
+                          variant="standard"
+                          sx={{
+                            "& .MuiInputBase-root": {
+                              height: "100%",
+                            },
+                            "&:hover .MuiInputBase-root::before, &:hover .MuiInputBase-root::after":
+                              {
+                                borderBottom: "none",
+                              },
+                            "& .MuiInputBase-root::before, & .MuiInputBase-root::after":
+                              {
+                                borderBottom: "none",
+                              },
+                          }}
                           renderInput={(params) => (
                             <TextField
                               {...params}

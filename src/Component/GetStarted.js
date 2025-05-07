@@ -158,8 +158,7 @@ export default function GetStarted() {
                 </div>
                 <div className="position-relative">
                   <p className="b-btn b-btn-green" onClick={handleUploadResume}>
-                    Upload CV
-                    <i className="fi fi-sr-arrow-right" />
+                    Upload CV <i className="fi fi-sr-arrow-right" />
                   </p>
                 </div>
               </div>

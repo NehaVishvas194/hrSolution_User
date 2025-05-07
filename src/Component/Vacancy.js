@@ -15,7 +15,7 @@ import { Link, useNavigate } from "react-router-dom";
 import WhatsApp_img from "../Image/whtsp.png";
 
 const top100Films = [
-  "Western Area Urban",
+  "Western Area Urban ",
   "Western Area Rural",
   "Bombali",
   "Bonthe",
@@ -31,10 +31,6 @@ const top100Films = [
   "Bo",
   "Karene",
   "Falaba",
-  "Tonkolili , Sierra leone",
-  "pvtrio tech",
-  "CDRT.ltd",
-  "Bombali , Sierra leone",
 ];
 
 const Vacancy = () => {
@@ -162,7 +158,7 @@ const Vacancy = () => {
         <div className="container-fluid">
           <div className="row justify-content-center">
             <div className="col-md-8">
-              <h2>Vacancy</h2>
+              <h2>Vacancies</h2>
               <p className="mt-2">Find your next job here </p>
             </div>
           </div>
@@ -176,7 +172,7 @@ const Vacancy = () => {
                 <img src={WhatsApp_img} />
               </div>
               <div className="wp_banner_content">
-                <p>Get updates on vacancies</p>
+                <p>Get updates on Vacancies</p>
               </div>
             </div>
           </marquee>
