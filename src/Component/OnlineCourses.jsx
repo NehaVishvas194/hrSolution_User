@@ -149,7 +149,7 @@ const OnlineCourses = () => {
                 </div>
             </section> */}
 
-      {/* <section className="onlineSec pt-50 mt-4 pb-3">
+      <section className="onlineSec pt-50 mt-4 pb-3">
         <div className="container">
           <h2 className="lrBorder1" style={{ "font-size": "25px" }}>
             {" "}
@@ -221,7 +221,7 @@ const OnlineCourses = () => {
               ))}
           </div>
         </div>
-      </section> */}
+      </section>
       <section className="features-section text-center  pt-30">
         <div className="container features-content">
           <h2 className="mb-5 lrBorder1">

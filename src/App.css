@@ -5585,7 +5585,8 @@ button#v-pills-home-tab {
 .gridBanner {
   background-image: url(./Image/allBanner.jpg);
   background-blend-mode: overlay;
-  background-color: #0000007a;
+  /* background-color: #0000007a; */
+  background-color: #4645457a;
   background-position: 50% 21%;
   background-repeat: no-repeat;
   background-size: cover;

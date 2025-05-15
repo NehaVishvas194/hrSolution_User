@@ -27,8 +27,6 @@ export default function Signin(props) {
     setInputData({ ...inputData, [name]: value });
   };
 
-
-
   const submitAllData = (e) => {
     e.preventDefault();
 

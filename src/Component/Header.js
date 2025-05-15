@@ -86,11 +86,11 @@ export default function Header() {
                   Our Services
                 </Link>
                 <ul className="dropdown-menu">
-                  {/* <li>
+                  <li>
                   <Link to="/fixitfinder" className="dropdown-item">
                     Fixit Finder
                   </Link>
-                </li> */}
+                </li>
                   <li>
                     <Link to="/hrconsultancy" className="dropdown-item">
                       HR Consultancy

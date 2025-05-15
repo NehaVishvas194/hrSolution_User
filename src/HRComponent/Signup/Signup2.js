@@ -1,11 +1,15 @@
 import React from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
+import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import EastIcon from "@mui/icons-material/East";
 import { useState, useEffect } from "react";
 import FormControl from "@mui/material/FormControl";
+import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
+import Checkbox from "@mui/material/Checkbox";
+import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -48,6 +52,8 @@ const company = [
 ];
 
 export default function SignUp(props) {
+  //  const location = useLocation();
+  //  console.log(location.state.id)
   const [hide, setHide] = useState(false);
   const toggle = () => {
     setHide((prev) => !prev);
@@ -68,15 +74,12 @@ export default function SignUp(props) {
 
   const [disable, setDisable] = useState("typing");
   const [facilitiesName, setFacilitiesName] = React.useState([]);
-  // const handleChange2 = (event) => {
-  //   const {
-  //     target: { value },
-  //   } = event;
-
-  //   setFacilitiesName(typeof value === "string" ? value.split(",") : value);
-  // };
   const handleChange2 = (event) => {
-    setFacilitiesName(event.target.value);
+    const {
+      target: { value },
+    } = event;
+
+    setFacilitiesName(typeof value === "string" ? value.split(",") : value);
   };
   const [companyName, setCompanyName] = React.useState([]);
   const handleChange3 = (event) => {
@@ -108,6 +111,7 @@ export default function SignUp(props) {
 
   const submitInputdata = (e) => {
     const { name, value, files } = e.target;
+    // Email validation
     if (name === "email") {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(value)) {
@@ -118,8 +122,8 @@ export default function SignUp(props) {
     }
     if (
       (name === "phone_no" &&
-        (value.length > 10 || !/^\d{0,10}$/.test(value))) ||
-      (name === "Number_of_emp" && value !== "" && !/^\d+$/.test(value))
+        (value.length > 10 || !/^\d{0,10}$/.test(value))) || // Restrict to 10 digits for phone_no
+      (name === "Number_of_emp" && value !== "" && !/^\d+$/.test(value)) // Numeric only for Number_of_emp
     ) {
       return;
     }
@@ -127,52 +131,48 @@ export default function SignUp(props) {
     setInputData({ ...inputData, [name]: value });
   };
 
+  // const imageFunction = (event) => {
+  //   setSelectedImage(event.target.files[0]);
+  // };
   const imageFunction = (event) => {
     const file = event.target.files[0];
     setSelectedImage(file);
   };
 
-  const submitAllData = async (e) => {
+  const submitAllData = (e) => {
     e.preventDefault();
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(inputData.email)) {
       alert("Please enter a valid email address.");
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append("name", inputData.name);
-    formData.append("email", inputData.email);
-    formData.append("password", inputData.password);
-    formData.append("phone_no", inputData.phone_no);
-    formData.append("company_name", inputData.company_name);
-    formData.append("Number_of_emp", inputData.Number_of_emp);
-    formData.append("company_industry", facilitiesName);
-    formData.append("company_HQ", companyName);
-
-    if (selectedImage) {
-      formData.append("logo", selectedImage);
-    }
-
-    setDisable("submitted");
-
-    try {
-      const res = await axios.post(`${baseUrl}employeeSignup`, formData);
-      if (res.data.success) {
-        Swal.fire("Success", "Registration complete!", "success");
-        navigate("/Signin");
-      } else {
-        Swal.fire("Error", res.data.message, "error");
-      }
-    } catch (err) {
-      console.error(err);
-      const message = err.response?.data?.message || "Something went wrong";
-      Swal.fire("Error", message, "error");
-    } finally {
-      setDisable("typing");
+    } else {
+      navigate("/Package", {
+        // signin
+        state: {
+          inputData: inputData,
+          industry: facilitiesName,
+          selectedImage: selectedImage,
+          companyName: companyName,
+        },
+      });
     }
   };
+
+  //   if (selectedImage !== null) {
+  //     console.log("Please select an image");
+  //   } else if (!emailRegex.test(inputData.email)) {
+  //     alert("Please enter a valid email address.");
+  //   } else {
+  //     navigate("/Package", {
+  //       // Package
+  //       state: {
+  //         inputData: inputData,
+  //         industry: facilitiesName,
+  //         selectedImage: selectedImage,
+  //         companyName: companyName,
+  //       },
+  //     });
+  //   }
+  // };
 
   return (
     <section className="section-paddings">
@@ -194,6 +194,34 @@ export default function SignUp(props) {
                   <div className="row">
                     <div className="col-lg-12 col-12">
                       <div className="form-group">
+                        {/* <div className="profile-pic">
+                          
+                          {selectedImage ? (
+                            <img
+                              alt="not found"
+                              className="rounded-circle"
+                              height={200}
+                              src={URL.createObjectURL(selectedImage)}
+                            />
+                          ) : (
+                            <label htmlFor="profile-image-upload">
+                              <img
+                                alt="not found"
+                                className="rounded-circle"
+                                height={200}
+                                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                              />
+                            </label>
+                          )}
+                          <input
+                            id="profile-image-upload"
+                            type="file"
+                            name="image"
+                            onChange={imageFunction}
+                            className="file-input"
+                          />
+                          <div style={{ color: "#999" }}></div>
+                        </div> */}
                         <div className="container">
                           <div className="avatar-upload">
                             <div className="avatar-edit">
@@ -204,6 +232,7 @@ export default function SignUp(props) {
                                 name="image"
                                 onChange={imageFunction}
                                 className="file-input"
+                                // style={{ display: "none" }}
                               />
                               <label htmlFor="imageUpload" />
                             </div>
@@ -325,7 +354,7 @@ export default function SignUp(props) {
                           name="password"
                           value={inputData.password}
                           onChange={submitInputdata}
-                          style={{ paddingRight: "40px" }}
+                          style={{ paddingRight: "40px" }} // Add space for the icon
                         />
                         <span
                           className="icon"
@@ -428,12 +457,15 @@ export default function SignUp(props) {
                               MenuProps={{
                                 PaperProps: {
                                   style: {
-                                    maxHeight: 200,
-                                    overflowY: "auto",
+                                    maxHeight: 200, // Set the maximum height of the dropdown
+                                    overflowY: "auto", // Enable scrolling for long lists
                                   },
                                 },
                               }}
                               value={facilitiesName}
+                              // label={
+                              //   !facilitiesName.length ? "Company Industry" : ""
+                              // }
                               onChange={handleChange2}
                               style={{
                                 backgroundColor: "white",
@@ -447,6 +479,29 @@ export default function SignUp(props) {
                               ))}
                             </Select>
                           </FormControl>
+                          {/* <FormControl sx={{ width: 650 }}>
+                                    <TextField
+                                      select
+                                      label={!facilitiesName.length ? 'Company Industry' : ''}
+                                      value={facilitiesName}
+                                      onChange={handleChange2}
+                                      SelectProps={{
+
+                                        renderValue: (selected) => selected.join(', '),
+                                      }}
+                                      variant="outlined"
+
+                                      style={{ backgroundColor: "white", height: "45px" }}
+                                      InputLabelProps={{ shrink: !!facilitiesName.length }}
+                                    >
+                                      {names.map((name) => (
+                                        <MenuItem key={name} value={name}>
+                                          <Checkbox checked={facilitiesName.indexOf(name) > -1} />
+                                          <ListItemText primary={name} />
+                                        </MenuItem>
+                                      ))}
+                                    </TextField>
+                                  </FormControl> */}
                         </div>
                       </div>
                     </div>
@@ -468,6 +523,7 @@ export default function SignUp(props) {
                               id="demo-simple-select"
                               autoWidth={true}
                               value={companyName}
+                              // label={!companyName.length ? "companyName" : ""}
                               onChange={handleChange3}
                               style={{
                                 backgroundColor: "white",
@@ -476,8 +532,8 @@ export default function SignUp(props) {
                               MenuProps={{
                                 PaperProps: {
                                   style: {
-                                    maxHeight: 200,
-                                    overflowY: "auto",
+                                    maxHeight: 200, // Set the maximum height of the dropdown
+                                    overflowY: "auto", // Enable scrolling for long lists
                                   },
                                 },
                               }}

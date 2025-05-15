@@ -19,7 +19,7 @@ import TableCell from "@mui/material/TableCell";
 import { baseUrl } from "../Api/BaseUrl";
 import Swal from "sweetalert2";
 const countries = [
-  " Western Area Urban ",
+  "Western Area Urban ",
   "Western Area Rural",
   "Bombali",
   "Bonthe",
@@ -98,6 +98,7 @@ const FixitFinder = () => {
         });
       });
   };
+
   const handelFixiderCMS = () => {
     axios
       .get(`${baseUrl}getService/6605031c9a99e3c931fff841`)
@@ -178,7 +179,8 @@ const FixitFinder = () => {
                   className="b-btn job_area_btn"
                   href="job-grid"
                 >
-                  Search Now&nbsp;<i className="fi fi-sr-arrow-right" />
+                  Search Now&nbsp;
+                  <i className="fi fi-sr-arrow-right" />
                 </button>
               </div>
             </div>
@@ -198,33 +200,36 @@ const FixitFinder = () => {
                         <TableCell align="left" style={{ minWidth: "60px" }}>
                           Full Name
                         </TableCell>
-
+                        <TableCell align="left" style={{ minWidth: "85px" }}>
+                          Mobile No.1
+                        </TableCell>
+                        <TableCell align="left" style={{ minWidth: "85px" }}>
+                          Mobile No.2
+                        </TableCell>
                         <TableCell align="left" style={{ minWidth: "100px" }}>
                           Gender
                         </TableCell>
                         <TableCell align="left" style={{ minWidth: "100px" }}>
+                          Business
+                        </TableCell>
+                        <TableCell align="left" style={{ minWidth: "100px" }}>
                           Home Address
                         </TableCell>
-                        <TableCell align="left" style={{ minWidth: "85px" }}>
-                          Location in Sierra Leone
-                        </TableCell>
-                        <TableCell align="left" style={{ minWidth: "85px" }}>
-                          Mobile Number
-                        </TableCell>
-
                         <TableCell
                           align="left"
                           style={{ minWidth: "95px", "white-space": "nowrap" }}
                         >
-                          Applicable
+                          Title
                         </TableCell>
-                        <TableCell
+                        <TableCell align="left" style={{ minWidth: "85px" }}>
+                          Location in Sierra Leone	
+                        </TableCell>
+                        {/* <TableCell
                           align="left"
                           style={{ minWidth: "95px", "white-space": "nowrap" }}
                         >
                           other
-                        </TableCell>
-
+                        </TableCell> */}
                         {/* <TableCell align="left" style={{ minWidth: "100px" }}>
                     Status
                   </TableCell> */}
@@ -246,24 +251,30 @@ const FixitFinder = () => {
                             >
                               <TableCell align="left">{i + 1}</TableCell>
                               <TableCell>{row.Full_Name}</TableCell>
-
+                              <TableCell align="left">
+                                {row.Mobile_Number}
+                              </TableCell>
+                              <TableCell align="left">
+                                {row.Mobile_Number_2}
+                              </TableCell>
                               <TableCell align="left">
                                 {" "}
                                 {row.Gender}
                                 {/* {row.job_experience.length > 20 ? `${row.job_experience.substring(0, 18)}...` : row.job_experience} */}
                               </TableCell>
                               <TableCell align="left">
+                                {" "}
+                                {row.Business_Name}
+                                {/* {row.job_experience.length > 20 ? `${row.job_experience.substring(0, 18)}...` : row.job_experience} */}
+                              </TableCell>
+                              <TableCell align="left">
                                 {row.Home_Address ? row.Home_Address : "_"}
                               </TableCell>
+                              <TableCell>{row.applicable}</TableCell>
                               <TableCell align="left">
                                 {row.Location_in_Sierra_Leone}
                               </TableCell>
-
-                              <TableCell align="left">
-                                {row.Mobile_Number}
-                              </TableCell>
-                              <TableCell>{row.applicable}</TableCell>
-                              <TableCell>{row.other}</TableCell>
+                              {/* <TableCell>{row.other}</TableCell> */}
                             </TableRow>
                           );
                         })}

@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import PartnerBanner from "../Image/clients/banner.webp";
+import PartnerBanner from "../Image/clients/Our-Clients.png";
 import partner1 from "../Image/clients/Marie Stopes.png";
 import partner2 from "../Image/clients/Scals.png";
 import partner3 from "../Image/clients/ABB.png";
@@ -13,6 +13,7 @@ import partner8 from "../Image/clients/BRADCORP.png";
 import partner9 from "../Image/clients/rISE.png";
 import partner10 from "../Image/clients/MCSL.png";
 import partner11 from "../Image/clients/DOMESTIC HELPERS.png";
+
 const OurClients = () => {
   return (
     <div>

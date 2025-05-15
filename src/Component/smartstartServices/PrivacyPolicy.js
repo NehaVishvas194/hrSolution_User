@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Header from "../Header";
-import BackgroundImg from '../../Image/privacy.jpg'
+import BackgroundImg from "../../Image/privacy.jpg";
 import Footer from "../Footer";
-import bgimg from '../../Image/privacy-policy.jpg'
+import bgimg from "../../Image/privacy-policy.jpg";
 import { baseUrl } from "../../Api/BaseUrl";
 import axios from "axios";
 
@@ -34,10 +34,10 @@ export default function PrivacyPolicy() {
       <Header />
       {/* Banner Section start */}
       <section>
-        <div className='Page_title'  style={bannercss}>
-          <div className='container'>
-            <div className='row'>
-              <div className='col-md-12'>
+        <div className="Page_title" style={bannercss}>
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
                 <h2>Privacy Policy</h2>
               </div>
             </div>
@@ -49,13 +49,14 @@ export default function PrivacyPolicy() {
         <section className="privacy_section">
           <div className="container">
             <div className="row justify-content-center">
-              <div className="col-lg-12">
-              </div>
-
-              <div className="col-lg-12 my-5">
-
-                <p className="heading3" dangerouslySetInnerHTML={renderHTML(traning.Description)}></p>
-              </div>
+              {traning.map((info) => (
+                <div className="col-lg-12 my-5">
+                  <p
+                    className="heading3"
+                    dangerouslySetInnerHTML={renderHTML(info.Description)}
+                  ></p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

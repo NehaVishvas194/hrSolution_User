@@ -1,16 +1,18 @@
-import React from 'react';
-import dotted from '../Image/dotted.png';
-import Girl from '../../Image/Girl2.png';
-import { Link } from 'react-router-dom';
-import { baseUrl } from '../../Api/BaseUrl';
-import axios from 'axios';
-import { useState, useEffect } from 'react';
+import React from "react";
+import dotted from "../Image/dotted.png";
+import Girl from "../../Image/Girl2.png";
+import Client from "../../Image/client.png"
+import { Link } from "react-router-dom";
+import { baseUrl } from "../../Api/BaseUrl";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 export default function HomeBanner() {
   const [homedata, setHomeData] = useState("");
 
   const handleMarketData = () => {
-    axios.get(`${baseUrl}get_cms_Home`)
+    axios
+      .get(`${baseUrl}get_cms_Home`)
       .then((res) => {
         console.log(res.data.Details);
         setHomeData(res.data.Details);
@@ -35,15 +37,16 @@ export default function HomeBanner() {
               <div className="contentHomeBanner d-flex align-items-center h-100">
                 <div>
                   <h2>
-
-                    <span dangerouslySetInnerHTML={renderHTML(homedata.Description)}></span>
+                    <span
+                      dangerouslySetInnerHTML={renderHTML(homedata.Description)}
+                    ></span>
                     <div className="hero-dot-shape">
                       <img src={dotted} alt="" />
                     </div>
                   </h2>
                   <div>
                     <Link to="/SignUp">
-                      <button className='find_button2 postjobbtn'>
+                      <button className="find_button2 postjobbtn">
                         Post your job*
                       </button>
                     </Link>
@@ -53,7 +56,7 @@ export default function HomeBanner() {
             </div>
             <div className="col-lg-5 wow slideInRight">
               <div className="bannerImg">
-                <img src={Girl} alt="Girl" />
+                <img src={Client} alt="Girl" />
               </div>
             </div>
           </div>

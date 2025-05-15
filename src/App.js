@@ -89,7 +89,7 @@ import OurClients from "./Component/OurClients";
 // import TestCategery from './DashboardHR/Psychometric/TestCategery';
 
 function App() {
-  console.log("date:-06-05-2025 time:-02:10");
+  console.log("date:-14-05-2025 time:-06:20");
   const [text, setText] = useState("");
   return (
     <div className="App">
@@ -98,8 +98,8 @@ function App() {
       <MyContext.Provider value={{ text, setText }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/SignUp" element={<SignUp />} /> */}
-          <Route path="/SignUp" element={<Register />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          {/* <Route path="/SignUp" element={<Register />} /> */}
           <Route path="/Package" element={<Selectpackeg />} />
           <Route path="/Signin" element={<Signin />} />
           <Route path="/Services" element={<Services />} />

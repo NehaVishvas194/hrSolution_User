@@ -84,11 +84,12 @@ export default function Popular() {
               </div>
             </div>
           </div>
-          <div className="row">
+
+          {/* <div className="row">
             {rows.slice(0, 9).map((info) => (
               <a onClick={() => addJobsData(info.jobId)}>
                 <div
-                  className="col-xl-4 col-lg-6 col-md-12 mb-30"
+                  className="col-xl-4 col-lg-4 col-md-6 mb-30"
                   key={info?.jobId}
                 >
                   <div className="categories-wrapper pos-rel">
@@ -110,6 +111,36 @@ export default function Popular() {
                   </div>
                 </div>
               </a>
+            ))}
+          </div> */}
+          <div className="row">
+            {rows.slice(0, 9).map((info) => (
+              <div
+                className="col-xl-4 col-lg-4 col-md-6 mb-4"
+                key={info?.jobId}
+              >
+                <div
+                  className="categories-wrapper pos-rel"
+                  onClick={() => addJobsData(info.jobId)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <div className="categories-icon f-left">
+                    <WorkOutlineOutlinedIcon style={{ color: "#bf9b2f" }} />
+                  </div>
+                  <div className="categories-text">
+                    <h4>{info?.job_title}</h4>
+                    <span>{info?.status} Available Jobs</span>
+                  </div>
+                  <div className="cat-button">
+                    <a
+                      style={{ "text-transform": "uppercase" }}
+                      onClick={() => addJobsData(info.jobId)}
+                    >
+                      <KeyboardDoubleArrowRightIcon className="align-middle pb-1" />
+                    </a>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>

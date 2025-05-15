@@ -194,7 +194,8 @@ const BlogDetails = () => {
                           </div>
                           <div className="col-lg-10 ps-0">
                             <span className="mt-2 d-block">Call Us</span>
-                            <span className="mt-2 d-block">+23288353535</span>
+                            <span className="mt-2 d-block">+232 88353535</span>
+                            <span className="mt-2 d-block">+232 88247000</span>
                           </div>
                         </div>
                         <div className="row mt-4">

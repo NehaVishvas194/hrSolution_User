@@ -5,6 +5,7 @@ import { baseUrl } from '../../../Api/BaseUrl';
 import axios from 'axios';
 import logo from "../../../Image/white-logo.png"
 import Swal from "sweetalert2";
+
 export default function ForgetPassword() {
     const navigate = useNavigate();
     const [forgotErr, setForgotErr] = useState(false);

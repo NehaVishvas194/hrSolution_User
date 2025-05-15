@@ -23,6 +23,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 const ariaLabel = { "aria-label": "description" };
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
+
 const MenuProps = {
   PaperProps: {
     style: {
@@ -89,6 +90,7 @@ export default function Register(props) {
 
     setCompanyName(typeof value === "string" ? value.split(",") : value);
   };
+  
   const fetchJobTitles = () => {
     axios
       .get(`${baseUrl}alljobTitle`)

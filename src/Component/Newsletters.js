@@ -1,14 +1,13 @@
-
-import React, { useState } from 'react';
-import axios from 'axios';
-import carrerJob from '../Image/letter.jfif';
+import React, { useState } from "react";
+import axios from "axios";
+import carrerJob from "../Image/letter.jfif";
 import Swal from "sweetalert2";
-import { baseUrl } from '../Api/BaseUrl';
+import { baseUrl } from "../Api/BaseUrl";
 
 export default function Newsletters() {
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const validateEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -17,16 +16,16 @@ export default function Newsletters() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
-    setSuccess('');
+    setError("");
+    setSuccess("");
 
     if (!email) {
-      setError('Email is required.');
+      setError("Email is required.");
       return;
     }
 
     if (!validateEmail(email)) {
-      setError('Please enter a valid email address.');
+      setError("Please enter a valid email address.");
       return;
     }
 
@@ -34,14 +33,14 @@ export default function Newsletters() {
       const response = await axios.post(`${baseUrl}newsLetter`, { email });
       Swal.fire("Success", "subscribed successfully", "success");
       if (response.status === 200) {
-        setSuccess('');
-        setEmail('');
+        setSuccess("");
+        setEmail("");
       } else {
-        setError('Failed to subscribe. Please try again later.');
-         Swal.fire("Error", `${error?.response?.data?.message}`, "error");
+        setError("Failed to subscribe. Please try again later.");
+        Swal.fire("Error", `${error?.response?.data?.message}`, "error");
       }
     } catch (error) {
-      setError('Failed to subscribe. Please try again later.');
+      setError("Failed to subscribe. Please try again later.");
       Swal.fire("Error", `${error?.response?.data?.message}`, "error");
     }
   };
@@ -57,7 +56,8 @@ export default function Newsletters() {
             <div className="cta-text mb-30">
               <h3>Newsletters</h3>
               <p>
-                Subscribe for job alerts, career tips, and exclusive opportunities
+                Subscribe for job alerts, career tips, and exclusive
+                opportunities
               </p>
             </div>
           </div>
@@ -75,7 +75,7 @@ export default function Newsletters() {
                 </button>
               </form>
               {/* {error && <p style={{ color: 'red' }}>{error}</p>} */}
-              {success && <p style={{ color: 'green' }}>{success}</p>}
+              {success && <p style={{ color: "green" }}>{success}</p>}
             </div>
           </div>
         </div>

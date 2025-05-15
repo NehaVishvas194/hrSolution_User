@@ -47,15 +47,13 @@ export default function GetOtpPage() {
             "You clicked the button!",
             "success"
           );
-          navigate("/ResetPasswordPage", { state: { clienID:response.data.clientId} });
+          navigate("/ResetPasswordPage", {
+            state: { clienID: response.data.clientId },
+          });
         }
       })
       .catch((error) => {
-        Swal.fire(
-          "Error",
-          `${error?.response?.data?.message}`,
-          "error"
-        );
+        Swal.fire("Error", `${error?.response?.data?.message}`, "error");
         console.log(error);
       });
   };
@@ -79,7 +77,9 @@ export default function GetOtpPage() {
                       alt="Logo"
                     />
                   </div>
-                  <h4 className="text-center text-white py-3">OTP Verification</h4>
+                  <h4 className="text-center text-white py-3">
+                    OTP Verification
+                  </h4>
                   <form>
                     <p className="text-white text-center">
                       An OTP has been sent to {maskedEmail}
